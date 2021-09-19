@@ -15,50 +15,44 @@ $(document).ready(function (e) {
                 $('.invalid-feedback').remove();
                 $('.is-invalid').removeClass('is-invalid');
 
-                let el = document.createElement('div');
                 if (data.success === false) {
                     let errorClasses = data.error;
                     errorClasses.forEach(function(item, i, errorClasses) {
+                        let field;
                         if (item === 'agreement') {
-                            $('.' + item).append('' +
-                                '<div class="invalid-feedback">\n' +
-                                '          Согласитесь с условиями\n' +
-                                '        </div>');
-                            $('.' + item + ' input').addClass('is-invalid');
+                            field = 'Согласитесь с условиями';
                         }
                         else if (item === 'birth_date') {
-                            $('.' + item).append('' +
-                                '<div class="invalid-feedback">\n' +
-                                '          Дата рождения не может быть больше текущей даты\n' +
-                                '        </div>');
-                            $('.' + item + ' input').addClass('is-invalid');
+                            field = 'Дата рождения не может быть больше текущей даты';
                         }
                         else {
-                            $('.' + item).append('' +
-                                '<div class="invalid-feedback">\n' +
-                                '          Корректно заполните поле\n' +
-                                '        </div>');
-                            $('.' + item + ' input').addClass('is-invalid');
-                            $('.' + item + ' select').addClass('is-invalid');
+                            field = 'Корректно заполните поле';
                         }
+                        $('.' + item).append('' +
+                            '<div class="invalid-feedback">\n' +
+                            field +
+                            '        </div>');
+                        $('.' + item + ' input').addClass('is-invalid');
+                        $('.' + item + ' select').addClass('is-invalid');
                     });
                 }
                 else if (data.curlResult === 'success'){
+                    let el = document.createElement('div');
                     $('.myForm')[0].reset();
-                    el.className  = 'alert alert-success mr-2';
+                    $('.msg').empty()
+                    el.className  = 'alert alert-success alert-dismissible mr-2';
                     el.innerHTML = `Данные успешно отправлены
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     </button>
                     `;
                     $('.msg').append(el);
-
                 }
                 else {
-                    el.className  = 'alert alert-danger mr-2';
+                    let el = document.createElement('div');
+                    $('.msg').empty();
+                    el.className  = 'alert alert-danger alert-dismissible mr-2 fade show';
                     el.innerHTML = `Ошибка отправки данных
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     </button>
                     `;
                     $('.msg').append(el);

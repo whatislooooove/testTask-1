@@ -15,24 +15,24 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <div class="min-vh-100 mx-5"> <!-- поправить mx-5 на нужное-->
+        <div class="min-vh-100 mx-5">
             <div class="row min-vh-100 justify-content-center align-items-center">
-                <form class="myForm border rounded">
-                    <div class="row">
+                <form class="myForm border rounded" style="max-width: 400px;min-width: 300px;">
+                    <div class="row mt-3">
                         <div class="col-md-6 last_name">
                             <label for="last_name">Фамилия</label>
-                            <input type="text" class="form-control" placeholder="Фамилия (не менее 3 букв)" name="last_name">
+                            <input type="text" class="form-control" placeholder="Фамилия (не менее 3 букв)" name="last_name" maxlength="75">
                         </div>
                         <div class="col-md-6 first_name">
                             <label for="first_name">Имя</label>
-                            <input type="text" class="form-control" placeholder="Имя (не менее 3 букв)" name="first_name">
+                            <input type="text" class="form-control" placeholder="Имя (не менее 3 букв)" name="first_name" maxlength="75">
                         </div>
                     </div>
-                    <div class="form-group email">
+                    <div class="form-group email my-2">
                         <label for="inputEmail">Email</label>
-                        <input type="text" class="form-control" placeholder="Email" name="email">
+                        <input type="text" class="form-control" placeholder="Email" name="email" maxlength="140">
                     </div>
-                    <div class="form-group col-md-4 country">
+                    <div class="form-group col-md-6 country my-2">
                         <label for="inputState">Страна</label>
                         <select id="inputState" class="form-control" name="country">
                             <option selected></option>
@@ -45,13 +45,15 @@
                             ?>
                         </select>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
-                        <label class="form-check-label" for="inlineRadio1">Мужчина</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
-                        <label class="form-check-label" for="inlineRadio2">Женщина</label>
+                    <div class="my-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+                            <label class="form-check-label" for="inlineRadio1">Мужчина</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                            <label class="form-check-label" for="inlineRadio2">Женщина</label>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6 birth_date">
@@ -59,14 +61,14 @@
                             <input type="date" class="form-control" name="birth_date">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <div class="form-check">
                             <label class="form-check-label agreement">
                                 <input class="form-check-input agreement" type="checkbox" name="agreement">Согласие с условиями
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+                    <button type="submit" class="btn btn-primary my-4">Создать аккаунт</button>
                     <div class="msg">
                     </div>
                 </form>
